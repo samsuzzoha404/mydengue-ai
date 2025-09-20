@@ -1,0 +1,119 @@
+{
+  "extraction_date": "2025-09-19",
+  "total_areas": 18,
+  "areas": [
+    {
+      "type": "location",
+      "name": "KL",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: KL"
+    },
+    {
+      "type": "location",
+      "name": "Kl",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: Kl"
+    },
+    {
+      "type": "location",
+      "name": "kl",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: kl"
+    },
+    {
+      "type": "location",
+      "name": "SELANGOR",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: SELANGOR"
+    },
+    {
+      "type": "location",
+      "name": "JOHOR",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: JOHOR"
+    },
+    {
+      "type": "location",
+      "name": "PULAU PINANG",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: PULAU PINANG"
+    },
+    {
+      "type": "location",
+      "name": "PERAK",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: PERAK"
+    },
+    {
+      "type": "location",
+      "name": "KEDAH",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: KEDAH"
+    },
+    {
+      "type": "location",
+      "name": "KELANTAN",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: KELANTAN"
+    },
+    {
+      "type": "location",
+      "name": "KOTA BHARU",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: KOTA BHARU"
+    },
+    {
+      "type": "location",
+      "name": "TERENGGANU",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: TERENGGANU"
+    },
+    {
+      "type": "location",
+      "name": "PAHANG",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: PAHANG"
+    },
+    {
+      "type": "location",
+      "name": "SEREMBAN",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: SEREMBAN"
+    },
+    {
+      "type": "location",
+      "name": "Negeri Sembilan",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: Negeri Sembilan"
+    },
+    {
+      "type": "location",
+      "name": "MELAKA",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: MELAKA"
+    },
+    {
+      "type": "location",
+      "name": "SABAH",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: SABAH"
+    },
+    {
+      "type": "location",
+      "name": "SARAWAK",
+      "source": "statistik.pdf",
+      "description": "Dengue area mentioned: SARAWAK"
+    },
+    {
+      "type": "location",
+      "name": "Kuala Lumpur",
+      "source": "tapak_pembinaan.pdf#page=6.pdf",
+      "description": "Dengue area mentioned: Kuala Lumpur"
+    }
+  ],
+  "metadata": {
+    "source": "PDF extraction",
+    "purpose": "AI training for dengue area detection",
+    "format": "Processed for machine learning"
+  }
+}

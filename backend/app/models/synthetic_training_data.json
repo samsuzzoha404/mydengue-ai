@@ -1,0 +1,4591 @@
+{
+  "metadata": {
+    "generated_date": "2025-09-20T16:36:00.375976",
+    "version": "1.0.0",
+    "total_scenarios": 84,
+    "categories": [
+      "hotspot",
+      "potential",
+      "not_hotspot",
+      "uncertain",
+      "invalid"
+    ],
+    "location_types": [
+      "household_domestic",
+      "outdoor_waste_garbage",
+      "construction_sites",
+      "urban_drainage_infrastructure",
+      "natural_semi_natural",
+      "agricultural_areas",
+      "public_spaces"
+    ],
+    "purpose": "AI training for dengue breeding site detection"
+  },
+  "training_examples": {
+    "hotspot": [
+      {
+        "id": "hotspot_001",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Flower vase with stagnant water and floating leaves",
+          "location": "household_domestic",
+          "water_features": {
+            "stagnant": true,
+            "volume": "medium",
+            "clarity": "cloudy"
+          },
+          "container_type": "circular_deep",
+          "risk_factors": [
+            "organic_matter",
+            "indoor_warm",
+            "undisturbed"
+          ],
+          "confidence": 0.95
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "medium",
+              "clarity": "cloudy"
+            },
+            "container": {
+              "type": "circular_deep",
+              "breeding_suitability": "high"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "organic_matter",
+              "indoor_warm",
+              "undisturbed"
+            ],
+            "risk_score": 0.5
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.85,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_002",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Plastic bucket half-filled with rainwater outdoors",
+          "location": "household_domestic",
+          "water_features": {
+            "stagnant": true,
+            "volume": "large",
+            "clarity": "murky"
+          },
+          "container_type": "circular_deep",
+          "risk_factors": [
+            "rainwater_collection",
+            "outdoor_exposure",
+            "large_volume"
+          ],
+          "confidence": 0.9
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "large",
+              "clarity": "murky"
+            },
+            "container": {
+              "type": "circular_deep",
+              "breeding_suitability": "high"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "rainwater_collection",
+              "outdoor_exposure",
+              "large_volume"
+            ],
+            "risk_score": 0.6000000000000001
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.8,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_003",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Pet water bowl outdoors with old stagnant water",
+          "location": "household_domestic",
+          "water_features": {
+            "stagnant": true,
+            "volume": "medium",
+            "clarity": "dirty"
+          },
+          "container_type": "circular_shallow",
+          "risk_factors": [
+            "organic_contamination",
+            "outdoor_location",
+            "neglected"
+          ],
+          "confidence": 0.85
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "medium",
+              "clarity": "dirty"
+            },
+            "container": {
+              "type": "circular_shallow",
+              "breeding_suitability": "medium"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "organic_contamination",
+              "outdoor_location",
+              "neglected"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.75,
+            0.95
+          ]
+        }
+      },
+      {
+        "id": "hotspot_004",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Plant saucer under pot with standing water",
+          "location": "household_domestic",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "clear_to_murky"
+          },
+          "container_type": "circular_shallow",
+          "risk_factors": [
+            "regular_watering",
+            "warm_environment",
+            "small_volume"
+          ],
+          "confidence": 0.88
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "clear_to_murky"
+            },
+            "container": {
+              "type": "circular_shallow",
+              "breeding_suitability": "medium"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "regular_watering",
+              "warm_environment",
+              "small_volume"
+            ],
+            "risk_score": 0.4
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.78,
+            0.98
+          ]
+        }
+      },
+      {
+        "id": "hotspot_005",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Air conditioner drip tray with accumulated water",
+          "location": "household_domestic",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "clear"
+          },
+          "container_type": "rectangular_shallow",
+          "risk_factors": [
+            "continuous_dripping",
+            "warm_location",
+            "hidden_area"
+          ],
+          "confidence": 0.92
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "clear"
+            },
+            "container": {
+              "type": "rectangular_shallow",
+              "breeding_suitability": "medium"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "continuous_dripping",
+              "warm_location",
+              "hidden_area"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.8200000000000001,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_006",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Discarded tire lying flat filled with rainwater",
+          "location": "outdoor_waste_garbage",
+          "water_features": {
+            "stagnant": true,
+            "volume": "large",
+            "clarity": "dark_murky"
+          },
+          "container_type": "tire_circular",
+          "risk_factors": [
+            "rubber_material",
+            "perfect_breeding_shape",
+            "heat_retention"
+          ],
+          "confidence": 0.98
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "large",
+              "clarity": "dark_murky"
+            },
+            "container": {
+              "type": "tire_circular",
+              "breeding_suitability": "high"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "outdoor_waste_garbage",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "rubber_material",
+              "perfect_breeding_shape",
+              "heat_retention"
+            ],
+            "risk_score": 0.8999999999999999
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.88,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_007",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Empty plastic bottles and cans with rainwater",
+          "location": "outdoor_waste_garbage",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "varies"
+          },
+          "container_type": "cylindrical_narrow",
+          "risk_factors": [
+            "multiple_containers",
+            "irregular_cleaning",
+            "weather_exposed"
+          ],
+          "confidence": 0.87
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "varies"
+            },
+            "container": {
+              "type": "cylindrical_narrow",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "outdoor_waste_garbage",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "multiple_containers",
+              "irregular_cleaning",
+              "weather_exposed"
+            ],
+            "risk_score": 0.6
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.77,
+            0.97
+          ]
+        }
+      },
+      {
+        "id": "hotspot_008",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Coconut shells with water collected inside",
+          "location": "outdoor_waste_garbage",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "brown_organic"
+          },
+          "container_type": "natural_bowl",
+          "risk_factors": [
+            "organic_container",
+            "natural_nutrients",
+            "tropical_climate"
+          ],
+          "confidence": 0.9
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "brown_organic"
+            },
+            "container": {
+              "type": "natural_bowl",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "outdoor_waste_garbage",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "organic_container",
+              "natural_nutrients",
+              "tropical_climate"
+            ],
+            "risk_score": 0.5
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.8,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_009",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Open cement tank with collected rainwater",
+          "location": "construction_sites",
+          "water_features": {
+            "stagnant": true,
+            "volume": "very_large",
+            "clarity": "cement_muddy"
+          },
+          "container_type": "rectangular_deep",
+          "risk_factors": [
+            "construction_materials",
+            "temporary_structure",
+            "large_surface"
+          ],
+          "confidence": 0.85
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "very_large",
+              "clarity": "cement_muddy"
+            },
+            "container": {
+              "type": "rectangular_deep",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "construction_sites",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "construction_materials",
+              "temporary_structure",
+              "large_surface"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.75,
+            0.95
+          ]
+        }
+      },
+      {
+        "id": "hotspot_010",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Plastic sheets with water pooled on construction materials",
+          "location": "construction_sites",
+          "water_features": {
+            "stagnant": true,
+            "volume": "medium",
+            "clarity": "dirty"
+          },
+          "container_type": "irregular_depression",
+          "risk_factors": [
+            "temporary_pooling",
+            "construction_debris",
+            "uneven_surfaces"
+          ],
+          "confidence": 0.8
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "medium",
+              "clarity": "dirty"
+            },
+            "container": {
+              "type": "irregular_depression",
+              "breeding_suitability": "low"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "construction_sites",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "temporary_pooling",
+              "construction_debris",
+              "uneven_surfaces"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.7000000000000001,
+            0.9
+          ]
+        }
+      },
+      {
+        "id": "hotspot_011",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Clogged roadside drain with stagnant dirty water",
+          "location": "urban_drainage_infrastructure",
+          "water_features": {
+            "stagnant": true,
+            "volume": "large",
+            "clarity": "very_dirty"
+          },
+          "container_type": "rectangular_drain",
+          "risk_factors": [
+            "urban_pollution",
+            "blocked_flow",
+            "organic_debris"
+          ],
+          "confidence": 0.93
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "large",
+              "clarity": "very_dirty"
+            },
+            "container": {
+              "type": "rectangular_drain",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "urban_drainage_infrastructure",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "urban_pollution",
+              "blocked_flow",
+              "organic_debris"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.8300000000000001,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_012",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Blocked rain gutters with green stagnant water",
+          "location": "urban_drainage_infrastructure",
+          "water_features": {
+            "stagnant": true,
+            "volume": "medium",
+            "clarity": "green_algae"
+          },
+          "container_type": "elongated_channel",
+          "risk_factors": [
+            "leaf_blockage",
+            "elevated_position",
+            "algae_growth"
+          ],
+          "confidence": 0.91
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "medium",
+              "clarity": "green_algae"
+            },
+            "container": {
+              "type": "elongated_channel",
+              "breeding_suitability": "low"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "urban_drainage_infrastructure",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "leaf_blockage",
+              "elevated_position",
+              "algae_growth"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.81,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_013",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Potholes in road filled with stagnant rainwater",
+          "location": "urban_drainage_infrastructure",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small_to_medium",
+            "clarity": "muddy"
+          },
+          "container_type": "irregular_depression",
+          "risk_factors": [
+            "road_debris",
+            "poor_drainage",
+            "vehicle_contamination"
+          ],
+          "confidence": 0.82
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small_to_medium",
+              "clarity": "muddy"
+            },
+            "container": {
+              "type": "irregular_depression",
+              "breeding_suitability": "low"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "urban_drainage_infrastructure",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "road_debris",
+              "poor_drainage",
+              "vehicle_contamination"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.72,
+            0.9199999999999999
+          ]
+        }
+      },
+      {
+        "id": "hotspot_014",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Tree holes filled with rainwater and organic matter",
+          "location": "natural_semi_natural",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "organic_brown"
+          },
+          "container_type": "natural_cavity",
+          "risk_factors": [
+            "natural_breeding_site",
+            "organic_nutrients",
+            "protected_location"
+          ],
+          "confidence": 0.94
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "organic_brown"
+            },
+            "container": {
+              "type": "natural_cavity",
+              "breeding_suitability": "high"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_semi_natural",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "natural"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "natural_breeding_site",
+              "organic_nutrients",
+              "protected_location"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.84,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_015",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Bamboo stumps cut and filled with water",
+          "location": "natural_semi_natural",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "clear_to_brown"
+          },
+          "container_type": "cylindrical_natural",
+          "risk_factors": [
+            "perfect_breeding_cylinder",
+            "natural_material",
+            "shaded_area"
+          ],
+          "confidence": 0.96
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "clear_to_brown"
+            },
+            "container": {
+              "type": "cylindrical_natural",
+              "breeding_suitability": "high"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_semi_natural",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "natural"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "perfect_breeding_cylinder",
+              "natural_material",
+              "shaded_area"
+            ],
+            "risk_score": 0.4
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.86,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_016",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Irrigation channel with stagnant water between crops",
+          "location": "agricultural_areas",
+          "water_features": {
+            "stagnant": true,
+            "volume": "large",
+            "clarity": "muddy_organic"
+          },
+          "container_type": "elongated_channel",
+          "risk_factors": [
+            "agricultural_runoff",
+            "seasonal_stagnation",
+            "fertilizer_nutrients"
+          ],
+          "confidence": 0.8
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "large",
+              "clarity": "muddy_organic"
+            },
+            "container": {
+              "type": "elongated_channel",
+              "breeding_suitability": "low"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "agricultural_areas",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "natural"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "agricultural_runoff",
+              "seasonal_stagnation",
+              "fertilizer_nutrients"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.7000000000000001,
+            0.9
+          ]
+        }
+      },
+      {
+        "id": "hotspot_017",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Rubber tapping cups after rain collection",
+          "location": "agricultural_areas",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "latex_contaminated"
+          },
+          "container_type": "small_cup",
+          "risk_factors": [
+            "multiple_small_containers",
+            "tree_shade",
+            "regular_collection_cycle"
+          ],
+          "confidence": 0.88
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "latex_contaminated"
+            },
+            "container": {
+              "type": "small_cup",
+              "breeding_suitability": "medium"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "agricultural_areas",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "natural"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "multiple_small_containers",
+              "tree_shade",
+              "regular_collection_cycle"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.78,
+            0.98
+          ]
+        }
+      },
+      {
+        "id": "hotspot_018",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Boat or canoe with rainwater collected inside hull",
+          "location": "transport_vehicles",
+          "water_features": {
+            "stagnant": true,
+            "volume": "very_large",
+            "clarity": "rainwater_clear"
+          },
+          "container_type": "boat_hull",
+          "risk_factors": [
+            "large_surface_area",
+            "infrequent_use",
+            "outdoor_exposure"
+          ],
+          "confidence": 0.95
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "very_large",
+              "clarity": "rainwater_clear"
+            },
+            "container": {
+              "type": "boat_hull",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "transport_vehicles",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "large_surface_area",
+              "infrequent_use",
+              "outdoor_exposure"
+            ],
+            "risk_score": 0.4
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.85,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_019",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Truck bed with water pooling in corners",
+          "location": "transport_vehicles",
+          "water_features": {
+            "stagnant": true,
+            "volume": "medium",
+            "clarity": "dirty_rainwater"
+          },
+          "container_type": "vehicle_bed",
+          "risk_factors": [
+            "metal_surface",
+            "corner_pooling",
+            "commercial_neglect"
+          ],
+          "confidence": 0.88
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "medium",
+              "clarity": "dirty_rainwater"
+            },
+            "container": {
+              "type": "vehicle_bed",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "transport_vehicles",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "metal_surface",
+              "corner_pooling",
+              "commercial_neglect"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.78,
+            0.98
+          ]
+        }
+      },
+      {
+        "id": "hotspot_020",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Motorbike seat covers forming puddles after rain",
+          "location": "transport_vehicles",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "clear_rainwater"
+          },
+          "container_type": "vehicle_component",
+          "risk_factors": [
+            "plastic_surface",
+            "frequent_exposure",
+            "urban_pollution"
+          ],
+          "confidence": 0.82
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "clear_rainwater"
+            },
+            "container": {
+              "type": "vehicle_component",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "transport_vehicles",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "plastic_surface",
+              "frequent_exposure",
+              "urban_pollution"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.72,
+            0.9199999999999999
+          ]
+        }
+      },
+      {
+        "id": "hotspot_021",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Abandoned rickshaw cart holding accumulated water",
+          "location": "transport_vehicles",
+          "water_features": {
+            "stagnant": true,
+            "volume": "large",
+            "clarity": "stagnant_dirty"
+          },
+          "container_type": "abandoned_vehicle",
+          "risk_factors": [
+            "no_maintenance",
+            "permanent_stagnation",
+            "urban_waste"
+          ],
+          "confidence": 0.93
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "large",
+              "clarity": "stagnant_dirty"
+            },
+            "container": {
+              "type": "abandoned_vehicle",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "transport_vehicles",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "no_maintenance",
+              "permanent_stagnation",
+              "urban_waste"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.8300000000000001,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_022",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Cooling tower with stagnant water at base (poorly maintained)",
+          "location": "commercial_industrial",
+          "water_features": {
+            "stagnant": true,
+            "volume": "very_large",
+            "clarity": "industrial_contaminated"
+          },
+          "container_type": "industrial_equipment",
+          "risk_factors": [
+            "warm_temperature",
+            "chemical_contamination",
+            "large_breeding_area"
+          ],
+          "confidence": 0.91
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "very_large",
+              "clarity": "industrial_contaminated"
+            },
+            "container": {
+              "type": "industrial_equipment",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "commercial_industrial",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "warm_temperature",
+              "chemical_contamination",
+              "large_breeding_area"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.81,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_023",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Factory yard unused machinery trapping rainwater",
+          "location": "commercial_industrial",
+          "water_features": {
+            "stagnant": true,
+            "volume": "variable",
+            "clarity": "rusty_contaminated"
+          },
+          "container_type": "machinery",
+          "risk_factors": [
+            "metal_surfaces",
+            "irregular_drainage",
+            "industrial_chemicals"
+          ],
+          "confidence": 0.86
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "variable",
+              "clarity": "rusty_contaminated"
+            },
+            "container": {
+              "type": "machinery",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "commercial_industrial",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "metal_surfaces",
+              "irregular_drainage",
+              "industrial_chemicals"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.76,
+            0.96
+          ]
+        }
+      },
+      {
+        "id": "hotspot_024",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Open oil drums or chemical containers in storage yards",
+          "location": "commercial_industrial",
+          "water_features": {
+            "stagnant": true,
+            "volume": "large",
+            "clarity": "chemical_contaminated"
+          },
+          "container_type": "industrial_drum",
+          "risk_factors": [
+            "toxic_environment",
+            "long_term_storage",
+            "resistant_mosquitoes"
+          ],
+          "confidence": 0.94
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "large",
+              "clarity": "chemical_contaminated"
+            },
+            "container": {
+              "type": "industrial_drum",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "commercial_industrial",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "toxic_environment",
+              "long_term_storage",
+              "resistant_mosquitoes"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.84,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_025",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Shipping container roof depressions with rainwater pools",
+          "location": "commercial_industrial",
+          "water_features": {
+            "stagnant": true,
+            "volume": "medium",
+            "clarity": "metal_contaminated"
+          },
+          "container_type": "shipping_container",
+          "risk_factors": [
+            "metal_surface",
+            "roof_pooling",
+            "port_environment"
+          ],
+          "confidence": 0.89
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "medium",
+              "clarity": "metal_contaminated"
+            },
+            "container": {
+              "type": "shipping_container",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "commercial_industrial",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "metal_surface",
+              "roof_pooling",
+              "port_environment"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.79,
+            0.99
+          ]
+        }
+      },
+      {
+        "id": "hotspot_026",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Unused fish pond with stagnant dirty water (no fish)",
+          "location": "rural_agricultural_expansion",
+          "water_features": {
+            "stagnant": true,
+            "volume": "massive",
+            "clarity": "green_algae"
+          },
+          "container_type": "pond",
+          "risk_factors": [
+            "no_fish_predators",
+            "organic_matter",
+            "perfect_temperature"
+          ],
+          "confidence": 0.97
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "massive",
+              "clarity": "green_algae"
+            },
+            "container": {
+              "type": "pond",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "rural_agricultural_expansion",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "no_fish_predators",
+              "organic_matter",
+              "perfect_temperature"
+            ],
+            "risk_score": 0.5
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.87,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_027",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Irrigation tank not drained or covered properly",
+          "location": "rural_agricultural_expansion",
+          "water_features": {
+            "stagnant": true,
+            "volume": "very_large",
+            "clarity": "agricultural_runoff"
+          },
+          "container_type": "irrigation_tank",
+          "risk_factors": [
+            "seasonal_stagnation",
+            "fertilizer_nutrients",
+            "open_top"
+          ],
+          "confidence": 0.92
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "very_large",
+              "clarity": "agricultural_runoff"
+            },
+            "container": {
+              "type": "irrigation_tank",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "rural_agricultural_expansion",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "seasonal_stagnation",
+              "fertilizer_nutrients",
+              "open_top"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.8200000000000001,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_028",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Palm tree spathes (leaf casing) collecting water naturally",
+          "location": "rural_agricultural_expansion",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "natural_clear"
+          },
+          "container_type": "natural_plant",
+          "risk_factors": [
+            "perfect_breeding_size",
+            "natural_container",
+            "tropical_climate"
+          ],
+          "confidence": 0.96
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "natural_clear"
+            },
+            "container": {
+              "type": "natural_plant",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "rural_agricultural_expansion",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "perfect_breeding_size",
+              "natural_container",
+              "tropical_climate"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.86,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_029",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Unused livestock water trough filled with rainwater",
+          "location": "rural_agricultural_expansion",
+          "water_features": {
+            "stagnant": true,
+            "volume": "large",
+            "clarity": "organic_contaminated"
+          },
+          "container_type": "livestock_equipment",
+          "risk_factors": [
+            "animal_waste",
+            "irregular_cleaning",
+            "farm_neglect"
+          ],
+          "confidence": 0.9
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "large",
+              "clarity": "organic_contaminated"
+            },
+            "container": {
+              "type": "livestock_equipment",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "rural_agricultural_expansion",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "animal_waste",
+              "irregular_cleaning",
+              "farm_neglect"
+            ],
+            "risk_score": 0.4
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.8,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_030",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Fertilizer/grain sacks forming water pockets on plastic surfaces",
+          "location": "rural_agricultural_expansion",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "chemical_tinted"
+          },
+          "container_type": "agricultural_storage",
+          "risk_factors": [
+            "plastic_material",
+            "chemical_contamination",
+            "outdoor_storage"
+          ],
+          "confidence": 0.85
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "chemical_tinted"
+            },
+            "container": {
+              "type": "agricultural_storage",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "rural_agricultural_expansion",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "plastic_material",
+              "chemical_contamination",
+              "outdoor_storage"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.75,
+            0.95
+          ]
+        }
+      },
+      {
+        "id": "hotspot_031",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Street vendor umbrella or tarpaulin sagging with rainwater",
+          "location": "community_urban",
+          "water_features": {
+            "stagnant": true,
+            "volume": "medium",
+            "clarity": "urban_polluted"
+          },
+          "container_type": "temporary_structure",
+          "risk_factors": [
+            "temporary_pooling",
+            "frequent_formation",
+            "urban_pollution"
+          ],
+          "confidence": 0.87
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "medium",
+              "clarity": "urban_polluted"
+            },
+            "container": {
+              "type": "temporary_structure",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "community_urban",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "temporary_pooling",
+              "frequent_formation",
+              "urban_pollution"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.77,
+            0.97
+          ]
+        }
+      },
+      {
+        "id": "hotspot_032",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Public toilet broken tanks or buckets left unemptied",
+          "location": "community_urban",
+          "water_features": {
+            "stagnant": true,
+            "volume": "large",
+            "clarity": "sewage_contaminated"
+          },
+          "container_type": "public_sanitation",
+          "risk_factors": [
+            "human_waste",
+            "poor_maintenance",
+            "public_health_risk"
+          ],
+          "confidence": 0.95
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "large",
+              "clarity": "sewage_contaminated"
+            },
+            "container": {
+              "type": "public_sanitation",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "community_urban",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "human_waste",
+              "poor_maintenance",
+              "public_health_risk"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.85,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_033",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Market waste bins with water accumulated in bottoms",
+          "location": "community_urban",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "waste_contaminated"
+          },
+          "container_type": "waste_container",
+          "risk_factors": [
+            "food_waste",
+            "organic_nutrients",
+            "regular_contamination"
+          ],
+          "confidence": 0.91
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "waste_contaminated"
+            },
+            "container": {
+              "type": "waste_container",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "community_urban",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "food_waste",
+              "organic_nutrients",
+              "regular_contamination"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.81,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_034",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Park trash cans with open tops collecting rainwater",
+          "location": "community_urban",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "mixed_waste"
+          },
+          "container_type": "public_waste",
+          "risk_factors": [
+            "mixed_waste",
+            "public_access",
+            "weather_exposure"
+          ],
+          "confidence": 0.88
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "mixed_waste"
+            },
+            "container": {
+              "type": "public_waste",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "community_urban",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "mixed_waste",
+              "public_access",
+              "weather_exposure"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.78,
+            0.98
+          ]
+        }
+      },
+      {
+        "id": "hotspot_035",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Concrete flowerbeds or park planters with clogged drainage",
+          "location": "community_urban",
+          "water_features": {
+            "stagnant": true,
+            "volume": "medium",
+            "clarity": "plant_debris"
+          },
+          "container_type": "landscape_feature",
+          "risk_factors": [
+            "drainage_failure",
+            "plant_matter",
+            "landscaping_neglect"
+          ],
+          "confidence": 0.89
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "medium",
+              "clarity": "plant_debris"
+            },
+            "container": {
+              "type": "landscape_feature",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "community_urban",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "drainage_failure",
+              "plant_matter",
+              "landscaping_neglect"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.79,
+            0.99
+          ]
+        }
+      },
+      {
+        "id": "hotspot_036",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Old shoes, boots, or gloves left outside filled with water",
+          "location": "hidden_unusual",
+          "water_features": {
+            "stagnant": true,
+            "volume": "very_small",
+            "clarity": "footwear_contaminated"
+          },
+          "container_type": "footwear",
+          "risk_factors": [
+            "perfect_breeding_size",
+            "hidden_location",
+            "frequently_overlooked"
+          ],
+          "confidence": 0.96
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "very_small",
+              "clarity": "footwear_contaminated"
+            },
+            "container": {
+              "type": "footwear",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "hidden_unusual",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "perfect_breeding_size",
+              "hidden_location",
+              "frequently_overlooked"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.86,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_037",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Hollow bamboo fencing or decorative poles with water inside",
+          "location": "hidden_unusual",
+          "water_features": {
+            "stagnant": true,
+            "volume": "small",
+            "clarity": "natural_clear"
+          },
+          "container_type": "decorative_bamboo",
+          "risk_factors": [
+            "natural_container",
+            "difficult_cleaning",
+            "multiple_segments"
+          ],
+          "confidence": 0.93
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "small",
+              "clarity": "natural_clear"
+            },
+            "container": {
+              "type": "decorative_bamboo",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "hidden_unusual",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "natural_container",
+              "difficult_cleaning",
+              "multiple_segments"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.8300000000000001,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_038",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Plastic toys (cars, dolls, buckets) abandoned outdoors with water",
+          "location": "hidden_unusual",
+          "water_features": {
+            "stagnant": true,
+            "volume": "very_small",
+            "clarity": "toy_contaminated"
+          },
+          "container_type": "toy",
+          "risk_factors": [
+            "child_environment",
+            "frequently_overlooked",
+            "plastic_material"
+          ],
+          "confidence": 0.9
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "very_small",
+              "clarity": "toy_contaminated"
+            },
+            "container": {
+              "type": "toy",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "hidden_unusual",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "child_environment",
+              "frequently_overlooked",
+              "plastic_material"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.8,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "hotspot_039",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Old mattresses or furniture absorbing rain forming water pools",
+          "location": "hidden_unusual",
+          "water_features": {
+            "stagnant": true,
+            "volume": "medium",
+            "clarity": "fabric_contaminated"
+          },
+          "container_type": "furniture",
+          "risk_factors": [
+            "absorbent_material",
+            "long_term_pooling",
+            "waste_environment"
+          ],
+          "confidence": 0.85
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "medium",
+              "clarity": "fabric_contaminated"
+            },
+            "container": {
+              "type": "furniture",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "hidden_unusual",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "absorbent_material",
+              "long_term_pooling",
+              "waste_environment"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.75,
+            0.95
+          ]
+        }
+      },
+      {
+        "id": "hotspot_040",
+        "category": "hotspot",
+        "scenario": {
+          "description": "Retired aircraft in graveyards with open compartments holding water",
+          "location": "hidden_unusual",
+          "water_features": {
+            "stagnant": true,
+            "volume": "very_large",
+            "clarity": "aviation_contaminated"
+          },
+          "container_type": "aircraft",
+          "risk_factors": [
+            "multiple_compartments",
+            "remote_location",
+            "aviation_fluids"
+          ],
+          "confidence": 0.94
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "very_large",
+              "clarity": "aviation_contaminated"
+            },
+            "container": {
+              "type": "aircraft",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "hidden_unusual",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "multiple_compartments",
+              "remote_location",
+              "aviation_fluids"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "hotspot",
+          "confidence_range": [
+            0.84,
+            1.0
+          ]
+        }
+      }
+    ],
+    "potential": [
+      {
+        "id": "potential_001",
+        "category": "potential",
+        "scenario": {
+          "description": "Empty plastic bucket placed outdoors",
+          "location": "household_domestic",
+          "container_type": "circular_deep",
+          "risk_factors": [
+            "rain_collection_potential",
+            "outdoor_placement",
+            "large_capacity"
+          ],
+          "confidence": 0.7
+        },
+        "training_features": {
+          "visual_features": {
+            "container": {
+              "type": "circular_deep",
+              "breeding_suitability": "high"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "rain_collection_potential",
+              "outdoor_placement",
+              "large_capacity"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "potential",
+          "confidence_range": [
+            0.6,
+            0.7999999999999999
+          ]
+        }
+      },
+      {
+        "id": "potential_002",
+        "category": "potential",
+        "scenario": {
+          "description": "Dry tire lying flat in yard",
+          "location": "outdoor_waste_garbage",
+          "container_type": "tire_circular",
+          "risk_factors": [
+            "perfect_breeding_shape_when_wet",
+            "outdoor_exposure",
+            "heat_retention"
+          ],
+          "confidence": 0.75
+        },
+        "training_features": {
+          "visual_features": {
+            "container": {
+              "type": "tire_circular",
+              "breeding_suitability": "high"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "outdoor_waste_garbage",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "perfect_breeding_shape_when_wet",
+              "outdoor_exposure",
+              "heat_retention"
+            ],
+            "risk_score": 0.6000000000000001
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "potential",
+          "confidence_range": [
+            0.65,
+            0.85
+          ]
+        }
+      },
+      {
+        "id": "potential_003",
+        "category": "potential",
+        "scenario": {
+          "description": "Construction site with uneven surfaces and materials",
+          "location": "construction_sites",
+          "container_type": "irregular_multiple",
+          "risk_factors": [
+            "water_collection_surfaces",
+            "temporary_structures",
+            "debris_accumulation"
+          ],
+          "confidence": 0.65
+        },
+        "training_features": {
+          "visual_features": {
+            "container": {
+              "type": "irregular_multiple",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "construction_sites",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "water_collection_surfaces",
+              "temporary_structures",
+              "debris_accumulation"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "potential",
+          "confidence_range": [
+            0.55,
+            0.75
+          ]
+        }
+      },
+      {
+        "id": "potential_004",
+        "category": "potential",
+        "scenario": {
+          "description": "Roof gutters that appear blocked but no visible water",
+          "location": "urban_drainage_infrastructure",
+          "container_type": "elongated_channel",
+          "risk_factors": [
+            "drainage_blockage_potential",
+            "elevated_position",
+            "leaf_accumulation"
+          ],
+          "confidence": 0.68
+        },
+        "training_features": {
+          "visual_features": {
+            "container": {
+              "type": "elongated_channel",
+              "breeding_suitability": "low"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "urban_drainage_infrastructure",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "drainage_blockage_potential",
+              "elevated_position",
+              "leaf_accumulation"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "potential",
+          "confidence_range": [
+            0.5800000000000001,
+            0.78
+          ]
+        }
+      },
+      {
+        "id": "potential_005",
+        "category": "potential",
+        "scenario": {
+          "description": "Garden area with multiple empty containers",
+          "location": "household_domestic",
+          "container_type": "multiple_varied",
+          "risk_factors": [
+            "multiple_collection_points",
+            "garden_watering",
+            "outdoor_storage"
+          ],
+          "confidence": 0.72
+        },
+        "training_features": {
+          "visual_features": {
+            "container": {
+              "type": "multiple_varied",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {
+            "factors": [
+              "multiple_collection_points",
+              "garden_watering",
+              "outdoor_storage"
+            ],
+            "risk_score": 0.30000000000000004
+          },
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "potential",
+          "confidence_range": [
+            0.62,
+            0.82
+          ]
+        }
+      }
+    ],
+    "not_hotspot": [
+      {
+        "id": "not_hotspot_001",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Empty clean flower vase indoors",
+          "location": "household_domestic",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "circular_deep",
+          "exclusion_reasons": [
+            "no_water",
+            "indoor_location",
+            "regularly_cleaned"
+          ],
+          "confidence": 0.95
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "circular_deep",
+              "breeding_suitability": "high"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "no_water",
+              "indoor_location",
+              "regularly_cleaned"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.85,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_002",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Dry concrete pavement with no puddles",
+          "location": "urban_drainage_infrastructure",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "flat_surface",
+          "exclusion_reasons": [
+            "no_water_retention",
+            "good_drainage",
+            "solid_surface"
+          ],
+          "confidence": 0.98
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "flat_surface",
+              "breeding_suitability": "low"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "urban_drainage_infrastructure",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "no_water_retention",
+              "good_drainage",
+              "solid_surface"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.88,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_003",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Flowing river with clear moving water",
+          "location": "natural_semi_natural",
+          "water_features": {
+            "stagnant": false,
+            "volume": "very_large",
+            "clarity": "clear"
+          },
+          "container_type": "natural_flowing",
+          "exclusion_reasons": [
+            "flowing_water",
+            "too_large",
+            "natural_ecosystem"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "very_large",
+              "clarity": "clear"
+            },
+            "container": {
+              "type": "natural_flowing",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_semi_natural",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "natural"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "flowing_water",
+              "too_large",
+              "natural_ecosystem"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_004",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Swimming pool with clear chlorinated water",
+          "location": "public_spaces",
+          "water_features": {
+            "stagnant": false,
+            "volume": "very_large",
+            "clarity": "clear"
+          },
+          "container_type": "rectangular_maintained",
+          "exclusion_reasons": [
+            "chlorinated_water",
+            "maintained",
+            "circulation_system"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "very_large",
+              "clarity": "clear"
+            },
+            "container": {
+              "type": "rectangular_maintained",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "public_spaces",
+              "outdoor_likelihood": 0.8,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "chlorinated_water",
+              "maintained",
+              "circulation_system"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_005",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Fish pond with aquatic life and circulation",
+          "location": "natural_semi_natural",
+          "water_features": {
+            "stagnant": false,
+            "volume": "large",
+            "clarity": "clear_to_green"
+          },
+          "container_type": "natural_maintained",
+          "exclusion_reasons": [
+            "fish_present",
+            "ecosystem_balance",
+            "natural_predators"
+          ],
+          "confidence": 0.94
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "large",
+              "clarity": "clear_to_green"
+            },
+            "container": {
+              "type": "natural_maintained",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_semi_natural",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "natural"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "fish_present",
+              "ecosystem_balance",
+              "natural_predators"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.84,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_006",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Parked car in driveway",
+          "location": "household_domestic",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "vehicle",
+          "exclusion_reasons": [
+            "irrelevant_object",
+            "no_water_retention",
+            "solid_surface"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "vehicle",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "irrelevant_object",
+              "no_water_retention",
+              "solid_surface"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_007",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Person standing in garden",
+          "location": "household_domestic",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "human",
+          "exclusion_reasons": [
+            "human_subject",
+            "irrelevant_to_breeding",
+            "living_being"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "human",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "human_subject",
+              "irrelevant_to_breeding",
+              "living_being"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_008",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Clean dry dishes on kitchen counter",
+          "location": "household_domestic",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "kitchen_items",
+          "exclusion_reasons": [
+            "indoor_location",
+            "clean_dry_surfaces",
+            "food_preparation_area"
+          ],
+          "confidence": 0.97
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "kitchen_items",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_domestic",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "indoor_location",
+              "clean_dry_surfaces",
+              "food_preparation_area"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.87,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_009",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Waterfall with fast-moving water",
+          "location": "natural_large_water",
+          "water_features": {
+            "stagnant": false,
+            "volume": "massive",
+            "clarity": "clear"
+          },
+          "container_type": "natural_flowing",
+          "exclusion_reasons": [
+            "high_water_velocity",
+            "natural_ecosystem",
+            "too_large_scale"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "massive",
+              "clarity": "clear"
+            },
+            "container": {
+              "type": "natural_flowing",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_large_water",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "high_water_velocity",
+              "natural_ecosystem",
+              "too_large_scale"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_010",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Irrigation channel with constant water flow",
+          "location": "agricultural_flowing",
+          "water_features": {
+            "stagnant": false,
+            "volume": "large",
+            "clarity": "muddy_flowing"
+          },
+          "container_type": "channel_flowing",
+          "exclusion_reasons": [
+            "water_current",
+            "agricultural_irrigation",
+            "maintained_flow"
+          ],
+          "confidence": 0.96
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "large",
+              "clarity": "muddy_flowing"
+            },
+            "container": {
+              "type": "channel_flowing",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "agricultural_flowing",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "water_current",
+              "agricultural_irrigation",
+              "maintained_flow"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.86,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_011",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Ocean coastline with waves",
+          "location": "natural_large_water",
+          "water_features": {
+            "stagnant": false,
+            "volume": "massive",
+            "clarity": "saltwater"
+          },
+          "container_type": "natural_massive",
+          "exclusion_reasons": [
+            "saltwater",
+            "too_large",
+            "constant_movement"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "massive",
+              "clarity": "saltwater"
+            },
+            "container": {
+              "type": "natural_massive",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_large_water",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "saltwater",
+              "too_large",
+              "constant_movement"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_012",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Large lake or reservoir with circulation",
+          "location": "natural_large_water",
+          "water_features": {
+            "stagnant": false,
+            "volume": "massive",
+            "clarity": "clear_deep"
+          },
+          "container_type": "natural_managed",
+          "exclusion_reasons": [
+            "too_large_volume",
+            "natural_circulation",
+            "ecosystem_present"
+          ],
+          "confidence": 0.98
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "massive",
+              "clarity": "clear_deep"
+            },
+            "container": {
+              "type": "natural_managed",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_large_water",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "too_large_volume",
+              "natural_circulation",
+              "ecosystem_present"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.88,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_013",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Swimming pool with chlorine treatment and filtration",
+          "location": "maintained_facilities",
+          "water_features": {
+            "stagnant": false,
+            "volume": "large",
+            "clarity": "crystal_clear"
+          },
+          "container_type": "pool_maintained",
+          "exclusion_reasons": [
+            "chemical_treatment",
+            "filtration_system",
+            "regular_maintenance"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "large",
+              "clarity": "crystal_clear"
+            },
+            "container": {
+              "type": "pool_maintained",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "maintained_facilities",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "chemical_treatment",
+              "filtration_system",
+              "regular_maintenance"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_014",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Water tank with sealed lid and regular use",
+          "location": "household_maintained",
+          "water_features": {
+            "stagnant": false,
+            "volume": "large",
+            "clarity": "treated_water"
+          },
+          "container_type": "sealed_tank",
+          "exclusion_reasons": [
+            "sealed_container",
+            "regular_use",
+            "treated_water"
+          ],
+          "confidence": 0.97
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "large",
+              "clarity": "treated_water"
+            },
+            "container": {
+              "type": "sealed_tank",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_maintained",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "sealed_container",
+              "regular_use",
+              "treated_water"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.87,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_015",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Fish pond stocked with larvivorous fish (guppies, tilapia)",
+          "location": "aquaculture_maintained",
+          "water_features": {
+            "stagnant": true,
+            "volume": "large",
+            "clarity": "fish_ecosystem"
+          },
+          "container_type": "fish_pond_active",
+          "exclusion_reasons": [
+            "fish_predators",
+            "managed_ecosystem",
+            "biological_control"
+          ],
+          "confidence": 0.95
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": true,
+              "volume": "large",
+              "clarity": "fish_ecosystem"
+            },
+            "container": {
+              "type": "fish_pond_active",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "aquaculture_maintained",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "fish_predators",
+              "managed_ecosystem",
+              "biological_control"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.85,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_016",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Decorative fountain with circulating pump",
+          "location": "public_maintained",
+          "water_features": {
+            "stagnant": false,
+            "volume": "medium",
+            "clarity": "circulating_clear"
+          },
+          "container_type": "fountain_active",
+          "exclusion_reasons": [
+            "water_circulation",
+            "pump_system",
+            "maintained_feature"
+          ],
+          "confidence": 0.96
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "medium",
+              "clarity": "circulating_clear"
+            },
+            "container": {
+              "type": "fountain_active",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "public_maintained",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "water_circulation",
+              "pump_system",
+              "maintained_feature"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.86,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_017",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Dry concrete floor after rain (absorbed quickly)",
+          "location": "urban_surfaces",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "concrete_dry",
+          "exclusion_reasons": [
+            "quick_drainage",
+            "no_water_retention",
+            "dry_surface"
+          ],
+          "confidence": 0.98
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "concrete_dry",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "urban_surfaces",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "quick_drainage",
+              "no_water_retention",
+              "dry_surface"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.88,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_018",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Open field with soil that absorbs water rapidly",
+          "location": "natural_drainage",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "soil_draining",
+          "exclusion_reasons": [
+            "natural_drainage",
+            "soil_absorption",
+            "no_container_shape"
+          ],
+          "confidence": 0.97
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "soil_draining",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_drainage",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "natural_drainage",
+              "soil_absorption",
+              "no_container_shape"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.87,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_019",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Dry trash pile without visible containers",
+          "location": "waste_dry",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "waste_dry",
+          "exclusion_reasons": [
+            "no_water_present",
+            "dry_materials",
+            "no_containers"
+          ],
+          "confidence": 0.94
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "waste_dry",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "waste_dry",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "no_water_present",
+              "dry_materials",
+              "no_containers"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.84,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_020",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Sunlit roof that dries quickly with no depressions",
+          "location": "building_rooftop",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "roof_flat",
+          "exclusion_reasons": [
+            "direct_sunlight",
+            "quick_evaporation",
+            "no_water_traps"
+          ],
+          "confidence": 0.96
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "roof_flat",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "building_rooftop",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "direct_sunlight",
+              "quick_evaporation",
+              "no_water_traps"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.86,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_021",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Large dam or hydroelectric plant",
+          "location": "industrial_massive",
+          "water_features": {
+            "stagnant": false,
+            "volume": "massive",
+            "clarity": "deep_water"
+          },
+          "container_type": "dam_structure",
+          "exclusion_reasons": [
+            "massive_scale",
+            "industrial_facility",
+            "engineered_flow"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "massive",
+              "clarity": "deep_water"
+            },
+            "container": {
+              "type": "dam_structure",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "industrial_massive",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "massive_scale",
+              "industrial_facility",
+              "engineered_flow"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_022",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Industrial cooling pond with constant monitoring",
+          "location": "industrial_managed",
+          "water_features": {
+            "stagnant": false,
+            "volume": "very_large",
+            "clarity": "industrial_clear"
+          },
+          "container_type": "cooling_pond",
+          "exclusion_reasons": [
+            "industrial_monitoring",
+            "constant_flow",
+            "too_large_scale"
+          ],
+          "confidence": 0.97
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "very_large",
+              "clarity": "industrial_clear"
+            },
+            "container": {
+              "type": "cooling_pond",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "industrial_managed",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "industrial_monitoring",
+              "constant_flow",
+              "too_large_scale"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.87,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_023",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Pets (dogs, cats) in outdoor setting",
+          "location": "household_outdoor",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "living_animal",
+          "exclusion_reasons": [
+            "living_creature",
+            "irrelevant_subject",
+            "no_water_container"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "living_animal",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "household_outdoor",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "living_creature",
+              "irrelevant_subject",
+              "no_water_container"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_024",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "People walking in park or street",
+          "location": "public_spaces",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "human_subjects",
+          "exclusion_reasons": [
+            "human_subjects",
+            "irrelevant_to_breeding",
+            "no_containers"
+          ],
+          "confidence": 0.99
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "human_subjects",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "public_spaces",
+              "outdoor_likelihood": 0.8,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "human_subjects",
+              "irrelevant_to_breeding",
+              "no_containers"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.89,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_025",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Garden with healthy drainage and no standing water",
+          "location": "landscaped_maintained",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "garden_maintained",
+          "exclusion_reasons": [
+            "good_drainage",
+            "maintained_landscaping",
+            "no_water_accumulation"
+          ],
+          "confidence": 0.95
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "garden_maintained",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "landscaped_maintained",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "good_drainage",
+              "maintained_landscaping",
+              "no_water_accumulation"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.85,
+            1.0
+          ]
+        }
+      },
+      {
+        "id": "not_hotspot_026",
+        "category": "not_hotspot",
+        "scenario": {
+          "description": "Various animals in natural habitat (no containers)",
+          "location": "natural_wildlife",
+          "water_features": {
+            "stagnant": false,
+            "volume": "none",
+            "clarity": "none"
+          },
+          "container_type": "wildlife_subjects",
+          "exclusion_reasons": [
+            "wildlife_focus",
+            "natural_subjects",
+            "no_breeding_containers"
+          ],
+          "confidence": 0.98
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": false,
+              "volume": "none",
+              "clarity": "none"
+            },
+            "container": {
+              "type": "wildlife_subjects",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_wildlife",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {
+            "reasons": [
+              "wildlife_focus",
+              "natural_subjects",
+              "no_breeding_containers"
+            ],
+            "exclusion_strength": 3
+          }
+        },
+        "expected_classification": {
+          "category": "not_hotspot",
+          "confidence_range": [
+            0.88,
+            1.0
+          ]
+        }
+      }
+    ],
+    "uncertain": [
+      {
+        "id": "uncertain_001",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Partially visible container behind vegetation",
+          "location": "natural_semi_natural",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "unknown"
+          },
+          "container_type": "partially_obscured",
+          "uncertainty_factors": [
+            "limited_visibility",
+            "unclear_water_presence",
+            "vegetation_blocking"
+          ],
+          "confidence": 0.4
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "unknown"
+            },
+            "container": {
+              "type": "partially_obscured",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_semi_natural",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "natural"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.30000000000000004,
+            0.5
+          ]
+        }
+      },
+      {
+        "id": "uncertain_002",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Reflective surface that could be water or wet pavement",
+          "location": "urban_drainage_infrastructure",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "reflective"
+          },
+          "container_type": "ambiguous_surface",
+          "uncertainty_factors": [
+            "reflection_ambiguity",
+            "wet_vs_water_unclear",
+            "surface_type_unclear"
+          ],
+          "confidence": 0.35
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "reflective"
+            },
+            "container": {
+              "type": "ambiguous_surface",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "urban_drainage_infrastructure",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.24999999999999997,
+            0.44999999999999996
+          ]
+        }
+      },
+      {
+        "id": "uncertain_003",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Dark shadowed area with possible water accumulation",
+          "location": "construction_sites",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "too_dark"
+          },
+          "container_type": "shadow_obscured",
+          "uncertainty_factors": [
+            "poor_lighting",
+            "shadow_obstruction",
+            "unclear_surface_type"
+          ],
+          "confidence": 0.3
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "too_dark"
+            },
+            "container": {
+              "type": "shadow_obscured",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "construction_sites",
+              "outdoor_likelihood": 1.0,
+              "urban_vs_natural": "urban"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.19999999999999998,
+            0.4
+          ]
+        }
+      },
+      {
+        "id": "uncertain_004",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Collapsed tent or canopy with possible water inside (angle unclear)",
+          "location": "outdoor_ambiguous",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "hidden"
+          },
+          "container_type": "collapsed_structure",
+          "uncertainty_factors": [
+            "structural_collapse",
+            "hidden_water",
+            "viewing_angle_poor"
+          ],
+          "confidence": 0.4
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "hidden"
+            },
+            "container": {
+              "type": "collapsed_structure",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "outdoor_ambiguous",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.30000000000000004,
+            0.5
+          ]
+        }
+      },
+      {
+        "id": "uncertain_005",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Partially blocked roadside drain (water visibility obstructed)",
+          "location": "urban_infrastructure_ambiguous",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "obscured"
+          },
+          "container_type": "drain_blocked",
+          "uncertainty_factors": [
+            "partial_blockage",
+            "water_level_unclear",
+            "debris_obstruction"
+          ],
+          "confidence": 0.45
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "obscured"
+            },
+            "container": {
+              "type": "drain_blocked",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "urban_infrastructure_ambiguous",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.35,
+            0.55
+          ]
+        }
+      },
+      {
+        "id": "uncertain_006",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Satellite image where surface reflectivity could be puddles or shadows",
+          "location": "aerial_ambiguous",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "aerial_unclear"
+          },
+          "container_type": "aerial_surface",
+          "uncertainty_factors": [
+            "satellite_resolution",
+            "reflection_vs_shadow",
+            "scale_ambiguity"
+          ],
+          "confidence": 0.35
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "aerial_unclear"
+            },
+            "container": {
+              "type": "aerial_surface",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "aerial_ambiguous",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.24999999999999997,
+            0.44999999999999996
+          ]
+        }
+      },
+      {
+        "id": "uncertain_007",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Thick vegetation where leaves may or may not hold water",
+          "location": "natural_vegetation_dense",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "vegetation_hidden"
+          },
+          "container_type": "plant_matter",
+          "uncertainty_factors": [
+            "vegetation_density",
+            "natural_containers_unclear",
+            "leaf_water_unknown"
+          ],
+          "confidence": 0.42
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "vegetation_hidden"
+            },
+            "container": {
+              "type": "plant_matter",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "natural_vegetation_dense",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.31999999999999995,
+            0.52
+          ]
+        }
+      },
+      {
+        "id": "uncertain_008",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Rusted metal drums outdoors (image resolution too low to see water)",
+          "location": "industrial_ambiguous",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "resolution_limited"
+          },
+          "container_type": "metal_containers",
+          "uncertainty_factors": [
+            "low_image_resolution",
+            "rust_obstruction",
+            "water_level_unclear"
+          ],
+          "confidence": 0.38
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "resolution_limited"
+            },
+            "container": {
+              "type": "metal_containers",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "industrial_ambiguous",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.28,
+            0.48
+          ]
+        }
+      },
+      {
+        "id": "uncertain_009",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Underground or covered areas with unclear water status",
+          "location": "underground_ambiguous",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "covered"
+          },
+          "container_type": "covered_containers",
+          "uncertainty_factors": [
+            "covered_surface",
+            "underground_location",
+            "access_limited"
+          ],
+          "confidence": 0.33
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "covered"
+            },
+            "container": {
+              "type": "covered_containers",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "underground_ambiguous",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.23,
+            0.43000000000000005
+          ]
+        }
+      },
+      {
+        "id": "uncertain_010",
+        "category": "uncertain",
+        "scenario": {
+          "description": "Weather-damaged structures with potential water collection points",
+          "location": "storm_damaged",
+          "water_features": {
+            "stagnant": null,
+            "volume": "unknown",
+            "clarity": "debris_mixed"
+          },
+          "container_type": "damaged_structure",
+          "uncertainty_factors": [
+            "structural_damage",
+            "debris_obstruction",
+            "water_collection_unclear"
+          ],
+          "confidence": 0.41
+        },
+        "training_features": {
+          "visual_features": {
+            "water": {
+              "stagnant": null,
+              "volume": "unknown",
+              "clarity": "debris_mixed"
+            },
+            "container": {
+              "type": "damaged_structure",
+              "breeding_suitability": "unknown"
+            }
+          },
+          "contextual_features": {
+            "location": {
+              "type": "storm_damaged",
+              "outdoor_likelihood": 0.5,
+              "urban_vs_natural": "mixed"
+            }
+          },
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "uncertain",
+          "confidence_range": [
+            0.30999999999999994,
+            0.51
+          ]
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "id": "invalid_001",
+        "category": "invalid",
+        "scenario": {
+          "description": "Blurred motion photo unusable for analysis",
+          "quality_issues": [
+            "motion_blur",
+            "out_of_focus",
+            "unusable"
+          ],
+          "confidence": 0.1
+        },
+        "training_features": {
+          "visual_features": {},
+          "contextual_features": {},
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "invalid",
+          "confidence_range": [
+            0.0,
+            0.2
+          ]
+        }
+      },
+      {
+        "id": "invalid_002",
+        "category": "invalid",
+        "scenario": {
+          "description": "Extremely dark image with no visible details",
+          "quality_issues": [
+            "too_dark",
+            "no_details_visible",
+            "poor_lighting"
+          ],
+          "confidence": 0.1
+        },
+        "training_features": {
+          "visual_features": {},
+          "contextual_features": {},
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "invalid",
+          "confidence_range": [
+            0.0,
+            0.2
+          ]
+        }
+      },
+      {
+        "id": "invalid_003",
+        "category": "invalid",
+        "scenario": {
+          "description": "Heavily pixelated or corrupted image data",
+          "quality_issues": [
+            "pixelation",
+            "data_corruption",
+            "low_resolution"
+          ],
+          "confidence": 0.1
+        },
+        "training_features": {
+          "visual_features": {},
+          "contextual_features": {},
+          "risk_indicators": {},
+          "exclusion_indicators": {}
+        },
+        "expected_classification": {
+          "category": "invalid",
+          "confidence_range": [
+            0.0,
+            0.2
+          ]
+        }
+      }
+    ]
+  },
+  "classification_guidelines": {
+    "hotspot_criteria": [
+      "Visible stagnant water present",
+      "Container-like structure that can hold water",
+      "Water can remain for 3-5+ days",
+      "Suitable for Aedes mosquito breeding"
+    ],
+    "potential_criteria": [
+      "Container present but no visible water",
+      "Outdoor location with rain exposure",
+      "Shape suitable for water collection",
+      "Requires verification after rain"
+    ],
+    "not_hotspot_criteria": [
+      "No water present and no collection potential",
+      "Moving/flowing water",
+      "Maintained water bodies (pools, aquariums)",
+      "Indoor dry surfaces",
+      "Irrelevant objects (vehicles, people, furniture)"
+    ],
+    "uncertain_criteria": [
+      "Poor image quality preventing analysis",
+      "Ambiguous water presence",
+      "Partially obscured containers",
+      "Conflicting visual indicators"
+    ],
+    "invalid_criteria": [
+      "Image too blurry/dark for analysis",
+      "Corrupted or distorted image data",
+      "Insufficient resolution",
+      "Motion blur or focus issues"
+    ]
+  },
+  "feature_importance": {
+    "critical_features": [
+      "water_presence",
+      "water_stagnation",
+      "container_shape",
+      "outdoor_location"
+    ],
+    "important_features": [
+      "water_volume",
+      "water_clarity",
+      "container_depth",
+      "environmental_context"
+    ],
+    "supporting_features": [
+      "organic_matter_presence",
+      "shading_conditions",
+      "maintenance_indicators",
+      "multiple_containers"
+    ],
+    "feature_weights": {
+      "water_presence": 0.25,
+      "stagnation_indicators": 0.2,
+      "container_suitability": 0.2,
+      "environmental_context": 0.15,
+      "risk_factors": 0.1,
+      "image_quality": 0.1
+    }
+  }
+}
