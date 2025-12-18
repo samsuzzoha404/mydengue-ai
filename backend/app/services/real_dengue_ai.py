@@ -291,6 +291,55 @@ class RealDengueAI:
         }
         return season_map.get(season, 0)
     
+    def analyze_outbreak_risk(self, location: str, weather_data: Dict[str, float]) -> Dict[str, Any]:
+        """
+        Analyze outbreak risk for a given location
+        This is a wrapper around predict_dengue_cases for compatibility
+        """
+        try:
+            prediction = self.predict_dengue_cases(weather_data, location)
+            
+            # If there's an error in the prediction, return a basic response
+            if "error" in prediction:
+                return {
+                    "location": location,
+                    "analysis": {
+                        "predicted_cases": 0,
+                        "risk_level": "Unknown",
+                        "risk_score": 0.5,
+                        "confidence": 0.3,
+                    },
+                    "error": prediction["error"],
+                    "fallback": "Using basic risk assessment due to missing historical data"
+                }
+            
+            return {
+                "location": location,
+                "analysis": {
+                    "predicted_cases": prediction.get("predicted_cases", 0),
+                    "risk_level": prediction.get("risk_level", "Unknown"),
+                    "risk_score": prediction.get("risk_score", 0),
+                    "confidence": prediction.get("confidence", 0),
+                },
+                "historical_context": prediction.get("historical_context", {}),
+                "weather_factors": prediction.get("weather_factors", {}),
+                "recommendations": prediction.get("recommendations", []),
+                "model_source": prediction.get("model_source", "Real Dengue AI")
+            }
+        except Exception as e:
+            # Return a fallback response on any error
+            return {
+                "location": location,
+                "analysis": {
+                    "predicted_cases": 0,
+                    "risk_level": "Unknown",
+                    "risk_score": 0.5,
+                    "confidence": 0.3,
+                },
+                "error": str(e),
+                "fallback": "Using basic risk assessment due to error"
+            }
+    
     def _get_recommendations(self, risk_level: str, predicted_cases: float, 
                            weather_data: Dict[str, float]) -> List[str]:
         """Generate recommendations based on prediction"""

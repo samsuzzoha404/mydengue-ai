@@ -7,7 +7,7 @@
  */
 
 // Weather API Configuration
-const WEATHERSTACK_API_KEY = "bc84b5b2cc1bd78082aa639929e9c533";
+const WEATHERSTACK_API_KEY = import.meta.env.VITE_WEATHERSTACK_API_KEY || "";
 const WEATHERSTACK_BASE_URL = "http://api.weatherstack.com";
 const MALAYSIA_API_BASE_URL = "https://api.data.gov.my";
 
@@ -60,6 +60,12 @@ class WeatherService {
   async getWeatherStackData(
     location: string = "Kuala Lumpur"
   ): Promise<WeatherStackResponse | null> {
+    // Check if API key is configured and valid
+    if (!WEATHERSTACK_API_KEY || WEATHERSTACK_API_KEY.length < 10) {
+      console.log("⚠️ WeatherStack API key not configured - using DEMO mode");
+      return this.getDemoWeatherData(location);
+    }
+
     const cacheKey = `weatherstack_${location}`;
 
     // Check cache
@@ -78,19 +84,65 @@ class WeatherService {
       );
 
       if (!response.ok) {
-        throw new Error(`WeatherStack API error: ${response.status}`);
+        console.warn(`WeatherStack API error: ${response.status} - switching to DEMO mode`);
+        return this.getDemoWeatherData(location);
       }
 
-      const data: WeatherStackResponse = await response.json();
+      const data = await response.json();
+
+      // Check if the API returned an error (e.g., invalid API key)
+      if (data.error) {
+        console.warn('WeatherStack API error - switching to DEMO mode:', data.error.info || data.error.type);
+        return this.getDemoWeatherData(location);
+      }
 
       // Cache the result
       this.cache[cacheKey] = { data, timestamp: Date.now() };
 
-      return data;
+      return data as WeatherStackResponse;
     } catch (error) {
-      console.error("WeatherStack API error:", error);
-      return null;
+      console.warn("WeatherStack API error - using DEMO mode:", error);
+      return this.getDemoWeatherData(location);
     }
+  }
+
+  /**
+   * Generate realistic demo weather data for Malaysian locations
+   */
+  private getDemoWeatherData(location: string = "Kuala Lumpur"): WeatherStackResponse {
+    // Different conditions for different Malaysian cities
+    const demoData: { [key: string]: any } = {
+      "Kuala Lumpur": { temp: 31, humidity: 78, precip: 5, desc: "Partly cloudy" },
+      "Selangor": { temp: 32, humidity: 80, precip: 8, desc: "Scattered showers" },
+      "Johor": { temp: 30, humidity: 75, precip: 3, desc: "Sunny" },
+      "Penang": { temp: 29, humidity: 82, precip: 12, desc: "Thunderstorms" },
+      "Perak": { temp: 28, humidity: 73, precip: 2, desc: "Clear" },
+      "Sabah": { temp: 27, humidity: 85, precip: 15, desc: "Heavy rain" },
+      "Sarawak": { temp: 28, humidity: 84, precip: 10, desc: "Rain" },
+    };
+
+    const cityData = demoData[location] || demoData["Kuala Lumpur"];
+    
+    // Add some randomness to make it more realistic
+    const tempVariation = (Math.random() - 0.5) * 4;
+    const humidityVariation = (Math.random() - 0.5) * 10;
+    
+    return {
+      current: {
+        temperature: Math.round(cityData.temp + tempVariation),
+        humidity: Math.round(Math.max(60, Math.min(95, cityData.humidity + humidityVariation))),
+        precip: cityData.precip + Math.round((Math.random() - 0.5) * 5),
+        weather_descriptions: [cityData.desc],
+        feelslike: Math.round(cityData.temp + tempVariation + 2),
+        uv_index: 7,
+        visibility: 10,
+      },
+      location: {
+        name: location,
+        country: "Malaysia",
+        region: location,
+      },
+    };
   }
 
   /**
@@ -217,7 +269,7 @@ class WeatherService {
 
       // Fallback to Malaysia API
       const malaysiaData = await this.getMalaysiaWeatherForecast();
-      if (malaysiaData && malaysiaData.data.length > 0) {
+      if (malaysiaData && malaysiaData.data && malaysiaData.data.length > 0) {
         const latestData = malaysiaData.data[0];
         const avgTemp =
           (latestData.temperature_max + latestData.temperature_min) / 2;
@@ -268,8 +320,8 @@ class WeatherService {
       humidity: `${Math.round(humidity)}%`,
       rainfall: `${Math.round(rainfall)}mm`,
       riskFactor,
-      location: "Malaysia",
-      lastUpdated: new Date().toLocaleTimeString() + " (Estimated)",
+      location: "Malaysia (Demo)",
+      lastUpdated: new Date().toLocaleTimeString() + " (Demo Data)",
     };
   }
 

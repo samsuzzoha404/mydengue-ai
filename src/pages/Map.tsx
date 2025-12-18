@@ -2,23 +2,32 @@ import { useState, useCallback } from "react";
 import {
   GoogleMap,
   useJsApiLoader,
-  HeatmapLayer,
+  Marker,
+  Circle,
+  InfoWindow,
 } from "@react-google-maps/api";
-import { MapPin, Filter, Info, TrendingUp, AlertTriangle } from "lucide-react";
+import { MapPin, Filter, Info, TrendingUp, AlertTriangle, ExternalLink, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { isApiKeyConfigured, GOOGLE_MAPS_SETUP_GUIDE } from "@/lib/google-maps-setup";
 
-const libraries: "visualization"[] = ["visualization"];
+const libraries: ("places" | "geometry")[] = ["places", "geometry"];
 
 const Map = () => {
   const [selectedFilter, setSelectedFilter] = useState("risk");
   const [selectedState, setSelectedState] = useState<string | null>(null);
   const [map, setMap] = useState<google.maps.Map | null>(null);
+  const [selectedMarker, setSelectedMarker] = useState<string | null>(null);
 
-  const { isLoaded } = useJsApiLoader({
+  // Check if Google Maps API key is configured
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  const hasApiKey = isApiKeyConfigured(apiKey);
+
+  const { isLoaded, loadError } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: hasApiKey ? apiKey : "",
     libraries: libraries,
   });
 
@@ -87,24 +96,25 @@ const Map = () => {
     },
   };
 
-  // Generate heatmap data points based on risk levels
-  const generateHeatmapData = () => {
-    const heatmapData: google.maps.LatLng[] = [];
-
-    Object.entries(riskData).forEach(([state, data]) => {
-      const weight = data.risk === "High" ? 5 : data.risk === "Medium" ? 3 : 1;
-      const basePoints = data.cases / 10; // Base number of points
-
-      // Create multiple points around each state center with some randomization
-      for (let i = 0; i < basePoints * weight; i++) {
-        const lat = data.lat + (Math.random() - 0.5) * 0.5; // ±0.25 degrees
-        const lng = data.lng + (Math.random() - 0.5) * 0.5; // ±0.25 degrees
-        heatmapData.push(new google.maps.LatLng(lat, lng));
-      }
-    });
-
-    return heatmapData;
+  // Generate visualization data for modern Google Maps (replaces deprecated HeatmapLayer)
+  const generateVisualizationData = () => {
+    return Object.entries(riskData).map(([state, data]) => ({
+      id: state,
+      state: state,
+      position: { lat: data.lat, lng: data.lng },
+      risk: data.risk,
+      cases: data.cases,
+      reports: data.reports,
+      color: data.color,
+      // Calculate circle radius based on cases
+      radius: Math.max(15000, data.cases * 500), // Minimum 15km radius
+      // Calculate marker icon color
+      markerColor: data.risk === "High" ? "#ef4444" : 
+                   data.risk === "Medium" ? "#f59e0b" : "#10b981"
+    }));
   };
+
+  const visualizationData = generateVisualizationData();
 
   const mapContainerStyle = {
     width: "100%",
@@ -189,9 +199,97 @@ const Map = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="h-[calc(100%-4rem)] p-0">
-                {/* Google Maps with Heatmap */}
+                {/* Google Maps with Heatmap or Demo Static Map */}
                 <div className="w-full h-full">
-                  {isLoaded ? (
+                  {!hasApiKey ? (
+                    /* Demo Static Map View - No API Key Required */
+                    <div className="w-full h-full bg-gradient-to-br from-slate-100 via-blue-50 to-emerald-50 dark:from-slate-900 dark:via-blue-950 dark:to-emerald-950 rounded-lg overflow-hidden relative">
+                      {/* Demo Mode Badge */}
+                      <div className="absolute top-4 left-4 z-10">
+                        <Badge className="bg-blue-600 text-white shadow-lg">
+                          <Info className="w-3 h-3 mr-1" />
+                          Demo Mode - Static View
+                        </Badge>
+                      </div>
+
+                      {/* Malaysia Map Representation with State Markers */}
+                      <div className="relative w-full h-full p-8">
+                        {/* Simple Malaysia Map Outline */}
+                        <svg viewBox="0 0 800 600" className="w-full h-full opacity-20 absolute inset-0">
+                          <path
+                            d="M 400 100 L 500 150 L 550 200 L 580 280 L 560 350 L 520 400 L 450 420 L 380 410 L 320 380 L 280 320 L 260 250 L 280 180 L 350 130 Z"
+                            fill="currentColor"
+                            className="text-slate-400"
+                          />
+                        </svg>
+
+                        {/* State Risk Indicators */}
+                        <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 gap-4 h-full content-center">
+                          {Object.entries(riskData).map(([state, data]) => (
+                            <button
+                              key={state}
+                              onClick={() => setSelectedState(state === selectedState ? null : state)}
+                              className={`
+                                p-4 rounded-lg border-2 transition-all duration-200
+                                ${selectedState === state ? 'ring-4 ring-primary/50 scale-105' : 'hover:scale-102'}
+                                ${data.risk === 'High' ? 'bg-red-50 border-red-300 dark:bg-red-950 dark:border-red-700' :
+                                  data.risk === 'Medium' ? 'bg-yellow-50 border-yellow-300 dark:bg-yellow-950 dark:border-yellow-700' :
+                                  'bg-green-50 border-green-300 dark:bg-green-950 dark:border-green-700'}
+                              `}
+                            >
+                              <div className="flex items-start justify-between mb-2">
+                                <h4 className="font-semibold text-sm">{state}</h4>
+                                <MapPin className={`w-4 h-4 ${
+                                  data.risk === 'High' ? 'text-red-600' :
+                                  data.risk === 'Medium' ? 'text-yellow-600' : 'text-green-600'
+                                }`} />
+                              </div>
+                              <div className="space-y-1 text-xs">
+                                <div className="flex justify-between">
+                                  <span className="text-muted-foreground">Risk:</span>
+                                  <span className={`font-semibold ${
+                                    data.risk === 'High' ? 'text-red-700 dark:text-red-400' :
+                                    data.risk === 'Medium' ? 'text-yellow-700 dark:text-yellow-400' :
+                                    'text-green-700 dark:text-green-400'
+                                  }`}>{data.risk}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                  <span className="text-muted-foreground">Cases:</span>
+                                  <span className="font-medium">{data.cases}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                  <span className="text-muted-foreground">Reports:</span>
+                                  <span className="font-medium">{data.reports}</span>
+                                </div>
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+
+                        {/* Info Footer */}
+                        <div className="absolute bottom-4 right-4 bg-white/90 dark:bg-slate-800/90 p-3 rounded-lg shadow-md max-w-xs">
+                          <p className="text-xs text-muted-foreground">
+                            <Info className="w-3 h-3 inline mr-1" />
+                            Add Google Maps API key for interactive map view
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ) : loadError ? (
+                    <div className="w-full h-full bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 rounded-lg flex items-center justify-center">
+                      <div className="text-center space-y-4 p-6">
+                        <AlertTriangle className="w-16 h-16 text-red-600 mx-auto" />
+                        <div>
+                          <h3 className="text-xl font-semibold text-foreground mb-2">
+                            Failed to Load Google Maps
+                          </h3>
+                          <p className="text-muted-foreground">
+                            There was an error loading the Google Maps API. Please check your API key and try again.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ) : isLoaded ? (
                     <GoogleMap
                       mapContainerStyle={mapContainerStyle}
                       center={center}
@@ -200,19 +298,75 @@ const Map = () => {
                       onUnmount={onUnmount}
                       options={mapOptions}
                     >
-                      <HeatmapLayer
-                        data={generateHeatmapData()}
-                        options={{
-                          radius: 50,
-                          opacity: 0.8,
-                          gradient: [
-                            "rgba(0, 255, 0, 0)",
-                            "rgba(255, 255, 0, 1)",
-                            "rgba(255, 165, 0, 1)",
-                            "rgba(255, 0, 0, 1)",
-                          ],
-                        }}
-                      />
+                      {/* Risk Circles for each state */}
+                      {visualizationData.map((stateData) => (
+                        <Circle
+                          key={`circle-${stateData.id}`}
+                          center={stateData.position}
+                          radius={stateData.radius}
+                          options={{
+                            fillColor: stateData.markerColor,
+                            fillOpacity: 0.25,
+                            strokeColor: stateData.markerColor,
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                          }}
+                        />
+                      ))}
+                      
+                      {/* Markers for each state */}
+                      {visualizationData.map((stateData) => (
+                        <Marker
+                          key={`marker-${stateData.id}`}
+                          position={stateData.position}
+                          onClick={() => setSelectedMarker(stateData.id)}
+                          icon={{
+                            path: google.maps.SymbolPath.CIRCLE,
+                            scale: 12,
+                            fillColor: stateData.markerColor,
+                            fillOpacity: 1,
+                            strokeColor: "#ffffff",
+                            strokeWeight: 2,
+                          }}
+                        />
+                      ))}
+                      
+                      {/* Info Windows */}
+                      {selectedMarker && (
+                        <InfoWindow
+                          position={visualizationData.find(d => d.id === selectedMarker)?.position}
+                          onCloseClick={() => setSelectedMarker(null)}
+                        >
+                          <div className="p-2 max-w-xs">
+                            {(() => {
+                              const data = visualizationData.find(d => d.id === selectedMarker);
+                              if (!data) return null;
+                              return (
+                                <div>
+                                  <h3 className="font-semibold text-lg mb-2">{data.state}</h3>
+                                  <div className="space-y-1 text-sm">
+                                    <div className="flex justify-between">
+                                      <span>Risk Level:</span>
+                                      <span className={`font-medium ${
+                                        data.risk === "High" ? "text-red-600" :
+                                        data.risk === "Medium" ? "text-yellow-600" : "text-green-600"
+                                      }`}>{data.risk}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span>Active Cases:</span>
+                                      <span className="font-medium">{data.cases}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span>Reports:</span>
+                                      <span className="font-medium">{data.reports}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })()}
+                          </div>
+                        </InfoWindow>
+                      )}
                     </GoogleMap>
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-lg flex items-center justify-center">
@@ -264,6 +418,46 @@ const Map = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Fallback Data Visualization when Maps API is not available */}
+            {!hasApiKey && (
+              <Card className="shadow-sm border-2">
+                <CardHeader className="pb-3 border-b">
+                  <CardTitle className="flex items-center gap-2 text-base">
+                    <MapPin className="w-4 h-4 text-healthcare-blue" />
+                    Risk Data Overview
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground">
+                    Interactive map unavailable - showing data table view
+                  </p>
+                </CardHeader>
+                <CardContent className="pt-4">
+                  <div className="space-y-3">
+                    {Object.entries(riskData).map(([state, data]) => (
+                      <div 
+                        key={state}
+                        className="flex items-center justify-between p-3 rounded-lg border hover:bg-muted/50 transition-colors"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-3 h-3 rounded-full ${
+                            data.risk === "High" ? "bg-red-500" :
+                            data.risk === "Medium" ? "bg-yellow-500" : "bg-green-500"
+                          }`}></div>
+                          <span className="font-medium">{state}</span>
+                        </div>
+                        <div className="flex items-center gap-4 text-sm">
+                          <Badge variant={data.risk === "High" ? "destructive" : 
+                                        data.risk === "Medium" ? "default" : "secondary"}>
+                            {data.risk} Risk
+                          </Badge>
+                          <span className="text-muted-foreground">{data.cases} cases</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
 
           {/* State Details */}

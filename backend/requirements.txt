@@ -60,7 +60,7 @@ google-cloud-translate==3.12.1
 
 # AI Services Integration
 accelerate==0.25.0
-torch-audio==2.0.2
+# torch-audio==2.0.2  # Commented out - not available for this Python version
 google-cloud-translate==3.12.1
 googletrans==4.0.0rc1
 langdetect==1.0.9
@@ -92,5 +92,5 @@ flake8==6.1.0
 web3==6.11.3
 
 # Optional: Quantum computing
-qiskit==0.44.2
-qiskit-aer==0.12.2
+# qiskit==0.44.2  # Commented out - conflicts with qiskit==0.45.1
+# qiskit-aer==0.12.2  # Commented out - conflicts with qiskit==0.45.1

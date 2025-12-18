@@ -4,7 +4,9 @@ from fastapi.staticfiles import StaticFiles
 import uvicorn
 import logging
 
-from app.routes import predict, weather, alerts, dashboard, heatmap, report, advanced, pdf_processing, ai_training
+from app.routes import weather, alerts, advanced
+# Temporarily disabled due to TensorFlow compatibility issues:
+# from app.routes import predict, pdf_processing, ai_training, dashboard, heatmap, report
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
@@ -93,15 +95,15 @@ async def startup_event():
         logger.info("📝 Core functionality remains available")
 
 # Include routers
-app.include_router(predict.router, prefix="/api/v1", tags=["Prediction"])
-app.include_router(report.router, prefix="/api/v1", tags=["Reports"])
+# app.include_router(predict.router, prefix="/api/v1", tags=["Prediction"])  # Disabled: TensorFlow dependency
+# app.include_router(report.router, prefix="/api/v1", tags=["Reports"])  # Disabled: TensorFlow dependency
 app.include_router(alerts.router, prefix="/api/v1", tags=["Alerts"])
-app.include_router(heatmap.router, prefix="/api/v1", tags=["Heatmap"])
-app.include_router(dashboard.router, prefix="/api/v1", tags=["Dashboard"])
+# app.include_router(heatmap.router, prefix="/api/v1", tags=["Heatmap"])  # Disabled: TensorFlow dependency
+# app.include_router(dashboard.router, prefix="/api/v1", tags=["Dashboard"])  # Disabled: TensorFlow dependency
 app.include_router(weather.router, prefix="/api/v1/weather", tags=["Weather"])
 app.include_router(advanced.router, tags=["Advanced Features"])
-app.include_router(pdf_processing.router, prefix="/api/v1", tags=["PDF Processing"])
-app.include_router(ai_training.router, prefix="/api/v1", tags=["AI Training"])
+# app.include_router(pdf_processing.router, prefix="/api/v1", tags=["PDF Processing"])  # Disabled: TensorFlow dependency
+# app.include_router(ai_training.router, prefix="/api/v1", tags=["AI Training"])  # Disabled: TensorFlow dependency
 
 @app.get("/")
 async def root():
@@ -121,6 +123,21 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "service": "dengue-ai-api"}
+
+@app.get("/api/v1/health")
+async def health_check_v1():
+    """Health check endpoint for API v1"""
+    return {
+        "status": "healthy",
+        "service": "dengue-ai-api",
+        "version": "2.0.0",
+        "features": {
+            "weather": "active",
+            "alerts": "active",
+            "advanced_ai": "limited",
+            "quantum": "available"
+        }
+    }
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
